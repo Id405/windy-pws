@@ -6,7 +6,9 @@ use crate::observation::Observation;
 /// Represents a single request made to the Windy PWS Api
 #[derive(Serialize)]
 pub struct WindyRequest {
+    #[serde(skip_serializing_if = "Option::is_none")]
     stations: Option<Vec<Station>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     observations: Option<Vec<Observation>>,
 }
 
